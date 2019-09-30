@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes"
+                access="global" controller="FlexiLightningTableController">
+    <aura:attribute name="typeOfForm" type="String"/>
+    <aura:attribute name="typeString" type="String" default="Form" />
+
+    <aura:attribute name="rowCount" type="Integer" />
+    <aura:attribute name="incrementCount" type="Integer" />
+    <aura:attribute name="enableViewMore" type="Boolean" />
+    <aura:attribute name="objectName" type="String" />
+    <aura:attribute name="columnsName" type="String" />
+
+    <aura:attribute name="dataList" type="Object"/>
+    <aura:attribute name="processedDataList" type="Object"/>
+    <aura:attribute name="columnList" type="List"/>
+
+    <aura:attribute name="recordId" type="String" default="0033i0000028WLLAA2" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.setColumns}" />
+
+    <lightning:card title="Flexible View Form - CMT" variant="base">
+            <!-- DO NOT HARDCODE ID -->
+            <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="{!v.objectName}">
+                <aura:iteration items="{!v.columnList}" var="col">
+                    <lightning:outputField fieldName="{!col.fieldName}" />
+                </aura:iteration>
+            </lightning:recordViewForm>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="objectName" label="Enter Object Name"/>
+    <design:attribute name="columnsName" label="Enter Fields API Names separated by comma"/>
+</design:component>

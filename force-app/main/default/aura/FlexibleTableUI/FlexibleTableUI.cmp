@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes"
+                access="global" controller="FlexiLightningTableController">
+
+    <aura:attribute name="rowCount" type="Integer" required="true"/>
+    <aura:attribute name="incrementCount" type="Integer" required="true"/>
+    <aura:attribute name="enableViewMore" type="Boolean" required="true"/>
+    <aura:attribute name="objectName" type="String" required="true"/>
+    <aura:attribute name="columnsName" type="String" required="true"/>
+
+    <aura:attribute name="dataList" type="Object"/>
+    <aura:attribute name="processedDataList" type="Object"/>
+    <aura:attribute name="columnList" type="List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.setColumns}" />
+
+    <lightning:card title="Flexible Table - Design Tokens" variant="base">
+        <lightning:datatable data="{!v.processedDataList}" columns="{!v.columnList}"
+                             keyField="id" hideCheckboxColumn="true"
+                             showRowNumberColumn="true"/>
+        <aura:if isTrue="{!v.enableViewMore}">
+            <div aura:id="viewMore" class="viewMore slds-align_absolute-center slds-var-p-around_medium">
+                <a href="" onclick="{!c.loadMoreData}">View More</a>
+            </div>
+        </aura:if>
+    </lightning:card>
+</aura:component>

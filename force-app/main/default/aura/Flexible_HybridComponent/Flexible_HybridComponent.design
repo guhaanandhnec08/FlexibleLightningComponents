@@ -1,0 +1,8 @@
+<design:component>
+    <design:attribute name="objectName" label="Enter Object Name"/>
+    <design:attribute name="columnsName" label="Enter Fields API Names separated by comma"/>
+    <design:attribute name="rowCount" label="Number of rows to display"/>
+    <design:attribute name="incrementCount" label="Number of rows to view more"/>
+    <design:attribute name="enableViewMore" label="Enable View More?"/>
+    <design:attribute name="showForm" label="Show as RecordForm?"/>
+</design:component>
